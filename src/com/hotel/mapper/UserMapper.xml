@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hotel.dao.UserMapper">
+  <resultMap id="BaseResultMap" type="com.hotel.entity.User">
+    <id column="phonenum" jdbcType="CHAR" property="phonenum" />
+    <result column="psw" jdbcType="CHAR" property="psw" />
+    <result column="nickname" jdbcType="CHAR" property="nickname" />
+    <result column="email" jdbcType="CHAR" property="email" />
+    <result column="sex" jdbcType="CHAR" property="sex" />
+    <result column="identity" jdbcType="CHAR" property="identity" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    phonenum, psw, nickname, email, sex, identity
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from hs_user
+    where phonenum = #{phonenum,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from hs_user
+    where phonenum = #{phonenum,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.hotel.entity.User">
+    insert into hs_user (phonenum, psw, nickname, 
+      email, sex, identity)
+    values (#{phonenum,jdbcType=CHAR}, #{psw,jdbcType=CHAR}, #{nickname,jdbcType=CHAR}, 
+      #{email,jdbcType=CHAR}, #{sex,jdbcType=CHAR}, #{identity,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.hotel.entity.User">
+    insert into hs_user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="phonenum != null">
+        phonenum,
+      </if>
+      <if test="psw != null">
+        psw,
+      </if>
+      <if test="nickname != null">
+        nickname,
+      </if>
+      <if test="email != null">
+        email,
+      </if>
+      <if test="sex != null">
+        sex,
+      </if>
+      <if test="identity != null">
+        identity,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="phonenum != null">
+        #{phonenum,jdbcType=CHAR},
+      </if>
+      <if test="psw != null">
+        #{psw,jdbcType=CHAR},
+      </if>
+      <if test="nickname != null">
+        #{nickname,jdbcType=CHAR},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=CHAR},
+      </if>
+      <if test="sex != null">
+        #{sex,jdbcType=CHAR},
+      </if>
+      <if test="identity != null">
+        #{identity,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.hotel.entity.User">
+    update hs_user
+    <set>
+      <if test="psw != null">
+        psw = #{psw,jdbcType=CHAR},
+      </if>
+      <if test="nickname != null">
+        nickname = #{nickname,jdbcType=CHAR},
+      </if>
+      <if test="email != null">
+        email = #{email,jdbcType=CHAR},
+      </if>
+      <if test="sex != null">
+        sex = #{sex,jdbcType=CHAR},
+      </if>
+      <if test="identity != null">
+        identity = #{identity,jdbcType=CHAR},
+      </if>
+    </set>
+    where phonenum = #{phonenum,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.hotel.entity.User">
+    update hs_user
+    set psw = #{psw,jdbcType=CHAR},
+      nickname = #{nickname,jdbcType=CHAR},
+      email = #{email,jdbcType=CHAR},
+      sex = #{sex,jdbcType=CHAR},
+      identity = #{identity,jdbcType=CHAR}
+    where phonenum = #{phonenum,jdbcType=CHAR}
+  </update>
+</mapper>

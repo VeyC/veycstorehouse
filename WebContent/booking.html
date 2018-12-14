@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet"  type="text/css"  href="css/booking.css"/>
+  
+<script type="text/javascript">
+window.onload = function(){
+    var prev = document.getElementById('prev');
+    var next = document.getElementById('next');
+    
+    var img1 = document.getElementById('img1');
+
+    var arrUrl = ['img/room_1.png',
+    	'img/room_2.png',
+    	'img/room_3.png',
+    	'img/room_4.png'];
+    
+    var num = 0;
+    // 初始化显示内容
+    function fnTab(){//重复的代码要用函数包起来
+    	
+        img1.src = arrUrl[num];//动态获取数组中图片，先加载第一张图片，因为num是0
+        
+    }
+    
+    fnTab();//调用函数，fnTab()代表执行函数里面的三行代码
+
+    next.onclick = function(){
+        num ++;//num自增1
+        if(num == arrUrl.length){//如果num的值超过数组的长度
+            num = 0;//恢复到第一张图片（数组中是从0 开始数）
+        }               
+        fnTab();// 然后相应加载的内容进行变动
+    }
+    prev.onclick = function(){
+        num --;
+        if(num == -1){
+            num = arrUrl.length - 1;//如果图片已经在第一张，还点击上一张，那么让图片显示最后一张，即数组长度减1为数组最后一张图片
+        }
+        fnTab();
+    }
+}
+
+
+</script>
+<title>房间预订</title>
+</head>
+<body>
+<div class="top">
+   <div class="top-hotel-name">
+   <img alt=" " src="img/logo 2.png " height="100" width="200">
+   </div>
+   <div class="date">
+   
+   </div>
+</div>
+<div class="first_part">
+
+    <div  class="room_pictures" id="content">
+     
+     <div  class="left">
+     <a href="javascript:;" id="prev" > 上一张 </a>
+     </div>
+     
+     
+     <div   class="pictures">
+     <img alt="" id='img1' style="width:100%;height:100%;"> 
+     </div>
+     
+     
+     <div   class="right">
+     <a href="javascript:;" id="next"> 下一张 </a> 
+     </div> 
+        
+    </div>
+     
+     
+     <div class="information" id="information">
+          
+                 <table class="room_information">
+                 <tr>
+                     <th>房间类型</th>
+                     <td>豪华套房</td>
+                 </tr>
+                 <tr>
+                     <th>房间大小</th>
+                     <td>35平方米</td>
+                 </tr>
+                 <tr>
+                     <th>楼层</th>
+                     <td>6-9层</td>
+                 </tr>
+                 <tr>
+                     <th>沐浴设施</th>
+                     <td>淋浴</td>
+                 </tr>
+                 <tr>
+                     <th>功能区域</th>
+                     <td>配有工作区并高速网络</td>
+                 </tr>
+ 
+          </table>
+     </div>
+</div>
+<div class="bottom">
+      <div class="hotel_information">
+      <table class="hotel_information">
+<tr>
+  <td>咨询电话：888888</td>
+  <td>酒店地址：山的那边海的那边</td>
+</tr>
+<tr>
+  <td>投诉电话：666666</td>
+  <td>酒店提供免费wifi</td>
+</tr>
+   </table>   
+      </div>
+</div>
+</body>
+</html>

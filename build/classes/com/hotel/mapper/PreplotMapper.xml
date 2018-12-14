@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hotel.dao.PreplotMapper">
+  <resultMap id="BaseResultMap" type="com.hotel.entity.Preplot">
+    <id column="booknum" jdbcType="INTEGER" property="booknum" />
+    <result column="phonenum" jdbcType="CHAR" property="phonenum" />
+    <result column="roomnum" jdbcType="CHAR" property="roomnum" />
+    <result column="startstaytime" jdbcType="CHAR" property="startstaytime" />
+    <result column="endstaytime" jdbcType="CHAR" property="endstaytime" />
+    <result column="booktime" jdbcType="CHAR" property="booktime" />
+    <result column="atimearrival" jdbcType="CHAR" property="atimearrival" />
+    <result column="atimeleave" jdbcType="CHAR" property="atimeleave" />
+    <result column="finish" jdbcType="INTEGER" property="finish" />
+    <result column="breakfast" jdbcType="INTEGER" property="breakfast" />
+    <result column="park" jdbcType="INTEGER" property="park" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    booknum, phonenum, roomnum, startstaytime, endstaytime, booktime, atimearrival, atimeleave, 
+    finish, breakfast, park
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from hs_preplot
+    where booknum = #{booknum,jdbcType=INTEGER}
+  </select>
+  
+  <select id="selectByUserKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from hs_preplot
+    where phonenum = #{phonenum,jdbcType=CHAR}
+  </select>
+  
+  
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from hs_preplot
+    where booknum = #{booknum,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.hotel.entity.Preplot">
+    insert into hs_preplot (booknum, phonenum, roomnum, 
+      startstaytime, endstaytime, booktime, 
+      atimearrival, atimeleave, finish, 
+      breakfast, park)
+    values (#{booknum,jdbcType=INTEGER}, #{phonenum,jdbcType=CHAR}, #{roomnum,jdbcType=CHAR}, 
+      #{startstaytime,jdbcType=CHAR}, #{endstaytime,jdbcType=CHAR}, #{booktime,jdbcType=CHAR}, 
+      #{atimearrival,jdbcType=CHAR}, #{atimeleave,jdbcType=CHAR}, #{finish,jdbcType=INTEGER}, 
+      #{breakfast,jdbcType=INTEGER}, #{park,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.hotel.entity.Preplot">
+    insert into hs_preplot
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="booknum != null">
+        booknum,
+      </if>
+      <if test="phonenum != null">
+        phonenum,
+      </if>
+      <if test="roomnum != null">
+        roomnum,
+      </if>
+      <if test="startstaytime != null">
+        startstaytime,
+      </if>
+      <if test="endstaytime != null">
+        endstaytime,
+      </if>
+      <if test="booktime != null">
+        booktime,
+      </if>
+      <if test="atimearrival != null">
+        atimearrival,
+      </if>
+      <if test="atimeleave != null">
+        atimeleave,
+      </if>
+      <if test="finish != null">
+        finish,
+      </if>
+      <if test="breakfast != null">
+        breakfast,
+      </if>
+      <if test="park != null">
+        park,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="booknum != null">
+        #{booknum,jdbcType=INTEGER},
+      </if>
+      <if test="phonenum != null">
+        #{phonenum,jdbcType=CHAR},
+      </if>
+      <if test="roomnum != null">
+        #{roomnum,jdbcType=CHAR},
+      </if>
+      <if test="startstaytime != null">
+        #{startstaytime,jdbcType=CHAR},
+      </if>
+      <if test="endstaytime != null">
+        #{endstaytime,jdbcType=CHAR},
+      </if>
+      <if test="booktime != null">
+        #{booktime,jdbcType=CHAR},
+      </if>
+      <if test="atimearrival != null">
+        #{atimearrival,jdbcType=CHAR},
+      </if>
+      <if test="atimeleave != null">
+        #{atimeleave,jdbcType=CHAR},
+      </if>
+      <if test="finish != null">
+        #{finish,jdbcType=INTEGER},
+      </if>
+      <if test="breakfast != null">
+        #{breakfast,jdbcType=INTEGER},
+      </if>
+      <if test="park != null">
+        #{park,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.hotel.entity.Preplot">
+    update hs_preplot
+    <set>
+      <if test="phonenum != null">
+        phonenum = #{phonenum,jdbcType=CHAR},
+      </if>
+      <if test="roomnum != null">
+        roomnum = #{roomnum,jdbcType=CHAR},
+      </if>
+      <if test="startstaytime != null">
+        startstaytime = #{startstaytime,jdbcType=CHAR},
+      </if>
+      <if test="endstaytime != null">
+        endstaytime = #{endstaytime,jdbcType=CHAR},
+      </if>
+      <if test="booktime != null">
+        booktime = #{booktime,jdbcType=CHAR},
+      </if>
+      <if test="atimearrival != null">
+        atimearrival = #{atimearrival,jdbcType=CHAR},
+      </if>
+      <if test="atimeleave != null">
+        atimeleave = #{atimeleave,jdbcType=CHAR},
+      </if>
+      <if test="finish != null">
+        finish = #{finish,jdbcType=INTEGER},
+      </if>
+      <if test="breakfast != null">
+        breakfast = #{breakfast,jdbcType=INTEGER},
+      </if>
+      <if test="park != null">
+        park = #{park,jdbcType=INTEGER},
+      </if>
+    </set>
+    where booknum = #{booknum,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.hotel.entity.Preplot">
+    update hs_preplot
+    set phonenum = #{phonenum,jdbcType=CHAR},
+      roomnum = #{roomnum,jdbcType=CHAR},
+      startstaytime = #{startstaytime,jdbcType=CHAR},
+      endstaytime = #{endstaytime,jdbcType=CHAR},
+      booktime = #{booktime,jdbcType=CHAR},
+      atimearrival = #{atimearrival,jdbcType=CHAR},
+      atimeleave = #{atimeleave,jdbcType=CHAR},
+      finish = #{finish,jdbcType=INTEGER},
+      breakfast = #{breakfast,jdbcType=INTEGER},
+      park = #{park,jdbcType=INTEGER}
+    where booknum = #{booknum,jdbcType=INTEGER}
+  </update>
+</mapper>

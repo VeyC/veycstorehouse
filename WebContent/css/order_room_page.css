@@ -1,0 +1,27 @@
+@charset "utf-8";
+html
+{
+	font-size:62.5%;
+}
+.start
+{
+	font-size:3em;background-color:#8080ff;
+}
+.first
+{
+	background-color:#c0c0c0;font-size:1em;width:100%;
+}
+#h1{font-color:#a8d9d2;}
+.medir{width:30%;margin:1em;heigh:50%;border:0.5em solid #b5b0ce;float:left;}
+.form-date-w3-agileits{margin:0.5em;bachground-color:#8080ff;}
+.numone{font-size:1em;font-color:#8080ff;}
+.img1{
+	width:25%;
+	high:25%;
+}
+.final{float:left;width:50%;heigh:100%;border:0.5em solid #b5b0ce;}
+.foot2{float:left;text-align:center;width:100%;}
+.kone{float:left;margin:0.5em;font-size:1.5em;font-color:#8080c0;width:50%;}
+.ktwo{float:right;margin:0.5em;font-size:1.5em;font-color:#8080c0;width:50%;}
+.number-right{float:left;width:100%}
+.tijiao{float:left;}

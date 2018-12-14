@@ -1,0 +1,61 @@
+body{
+	font-family: 'Roboto', sans-serif;
+	font-size: 100%;
+	background: url(../img/timg1.jpg)no-repeat center top;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    -ms-background-size: cover;
+    background-attachment: fixed;
+    text-align: center;
+}
+h1 {
+    font-size: 35px;
+    font-weight: 400;
+    text-transform: uppercase;
+    color: #fdfbfb;
+    word-spacing: 11px;
+    letter-spacing: 6px;
+    margin: 1.6em 0;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+}
+#two{
+	margin:15px;
+	padding:15px;
+}
+#three{
+	margin:15px;
+	padding:15px;
+}
+#ten{
+	margin:15px;
+	padding:15px;
+}
+.form-date-w3-agileits {
+    width:50%;
+    float: left;
+}
+.book-reservation {
+    background-color:#666;
+    padding: 35px;
+}
+.numone{
+	font-family:"Verdana";
+	font-color: rab(255,255,255);
+}
+.img1{
+	float:left;
+	width:100px;
+	high:100px;
+}
+.text1{
+	float:left;
+}
+.fin{
+	background-color:#666;
+	padding: 35px;
+}
+
+
